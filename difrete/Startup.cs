@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Template.Ioc;
 
 namespace difrete
 {
@@ -28,6 +29,7 @@ namespace difrete
             services.AddControllersWithViews();
 
             services.AddDbContext<TemplateContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("TemplateDB")).EnableSensitiveDataLogging());
+            NativeInjector.RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

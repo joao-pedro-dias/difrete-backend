@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "difrete", "difrete\difrete.csproj", "{411654C4-E7C4-425B-95B3-A1ADE86F87E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "difrete", "difrete\difrete.csproj", "{411654C4-E7C4-425B-95B3-A1ADE86F87E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Web", "1 - Web", "{AFFFF870-0C80-4859-9036-D05B0C97FF3C}"
 EndProject
@@ -13,15 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{FAA7C9A7-603F-4852-9860-99B58C988D8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Application", "Template.Application\Template.Application.csproj", "{5DDF8A74-F6D0-4984-BE96-419C26A4C1C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Application", "Template.Application\Template.Application.csproj", "{5DDF8A74-F6D0-4984-BE96-419C26A4C1C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Domain", "Template.Domain\Template.Domain.csproj", "{041F31B7-124C-48DD-9EB0-FE3E76429637}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Domain", "Template.Domain\Template.Domain.csproj", "{041F31B7-124C-48DD-9EB0-FE3E76429637}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Data", "Template.Data\Template.Data.csproj", "{6290F9EF-CA70-46A6-8C91-D618B3E9DD2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Data", "Template.Data\Template.Data.csproj", "{6290F9EF-CA70-46A6-8C91-D618B3E9DD2A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{964A5EFB-152B-4764-945F-DD710D6F0264}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{1C6E7837-3B86-475B-833A-139158BFA018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Ioc", "Template.Ioc\Template.Ioc.csproj", "{17D85100-29A7-43B7-893D-174037D7DB89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6290F9EF-CA70-46A6-8C91-D618B3E9DD2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6290F9EF-CA70-46A6-8C91-D618B3E9DD2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6290F9EF-CA70-46A6-8C91-D618B3E9DD2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D85100-29A7-43B7-893D-174037D7DB89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D85100-29A7-43B7-893D-174037D7DB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D85100-29A7-43B7-893D-174037D7DB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D85100-29A7-43B7-893D-174037D7DB89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{6290F9EF-CA70-46A6-8C91-D618B3E9DD2A} = {964A5EFB-152B-4764-945F-DD710D6F0264}
 		{964A5EFB-152B-4764-945F-DD710D6F0264} = {FAA7C9A7-603F-4852-9860-99B58C988D8C}
 		{1C6E7837-3B86-475B-833A-139158BFA018} = {FAA7C9A7-603F-4852-9860-99B58C988D8C}
+		{17D85100-29A7-43B7-893D-174037D7DB89} = {1C6E7837-3B86-475B-833A-139158BFA018}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2548E93-EFD5-4932-B49A-B533DDAC5960}
