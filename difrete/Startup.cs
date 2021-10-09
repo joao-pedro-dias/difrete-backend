@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using Template.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Template.Ioc;
+using Template.Application.AutoMapper;
+using AutoMapper;
+using Template.Swagger;
 
 namespace difrete
 {
@@ -30,6 +33,9 @@ namespace difrete
 
             services.AddDbContext<TemplateContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("TemplateDB")).EnableSensitiveDataLogging());
             NativeInjector.RegisterServices(services);
+
+            services.AddAutoMapper(typeof(AutoMapperSetup));
+            services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +51,9 @@ namespace difrete
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwaggerConfiguration();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
