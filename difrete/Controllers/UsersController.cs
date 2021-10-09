@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Template.Application.Interfaces;
 using Template.Application.Services;
+using Template.Application.ViewModels;
 
 namespace Template.Controllers
 {
@@ -15,7 +16,7 @@ namespace Template.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService userService;
-
+        
         public UsersController(IUserService userService)
         {
             this.userService = userService;
@@ -26,5 +27,12 @@ namespace Template.Controllers
         {
             return Ok(this.userService.Get());
         }
+
+        [HttpPost]
+        public IActionResult Post(UserViewModel userViewModel)
+        {
+            return Ok(this.userService.Post(userViewModel));
+        }
     }
 }
+
