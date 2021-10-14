@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -8,11 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 using Template.Application.Interfaces;
 using Template.Application.Services;
 using Template.Application.ViewModels;
+using Template.Auth.Services;
 
 namespace Template.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize]
+    [ApiController, Authorize] //colocando as API's como privada
 
     public class UsersController : ControllerBase
     {
@@ -29,7 +31,7 @@ namespace Template.Controllers
             return Ok(this.userService.Get());
         }
 
-        [HttpPost]
+        [HttpPost, AllowAnonymous] //com o AllowAnonymous conseguimos liberar a API para ser pública
         public IActionResult Post(UserViewModel userViewModel)
         {
             return Ok(this.userService.Post(userViewModel));
@@ -46,12 +48,14 @@ namespace Template.Controllers
         {
             return Ok(this.userService.Put(userViewModel));
         }
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        [HttpDelete]
+        public IActionResult Delete()
         {
-            return Ok(this.userService.Delete(id));
+            string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+            return Ok(this.userService.Delete(_userId));
         }
-        [HttpPost("authenticate"), AllowAnonymous]
+
+        [HttpPost("authenticate"), AllowAnonymous] //com o AllowAnonymous conseguimos liberar a API para ser pública
         public IActionResult Authenticate(UserAuthenticateRequestViewModel userViewModel)
         {
             return Ok(this.userService.Authenticate(userViewModel));
