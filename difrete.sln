@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "difrete", "difrete\difrete.csproj", "{411654C4-E7C4-425B-95B3-A1ADE86F87E0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20DC7559-2B3C-40C6-9CCF-7F4E595024EC} = {20DC7559-2B3C-40C6-9CCF-7F4E595024EC}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Web", "1 - Web", "{AFFFF870-0C80-4859-9036-D05B0C97FF3C}"
 EndProject
@@ -25,7 +28,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 -
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Ioc", "Template.Ioc\Template.Ioc.csproj", "{17D85100-29A7-43B7-893D-174037D7DB89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Swagger", "Template.Swagger\Template.Swagger.csproj", "{73E4D2BE-A71A-4D0D-8667-AFF50BEC248F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Swagger", "Template.Swagger\Template.Swagger.csproj", "{73E4D2BE-A71A-4D0D-8667-AFF50BEC248F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Auth", "Template.Auth\Template.Auth.csproj", "{20DC7559-2B3C-40C6-9CCF-7F4E595024EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +62,10 @@ Global
 		{73E4D2BE-A71A-4D0D-8667-AFF50BEC248F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E4D2BE-A71A-4D0D-8667-AFF50BEC248F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E4D2BE-A71A-4D0D-8667-AFF50BEC248F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DC7559-2B3C-40C6-9CCF-7F4E595024EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DC7559-2B3C-40C6-9CCF-7F4E595024EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DC7559-2B3C-40C6-9CCF-7F4E595024EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DC7559-2B3C-40C6-9CCF-7F4E595024EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +79,7 @@ Global
 		{1C6E7837-3B86-475B-833A-139158BFA018} = {FAA7C9A7-603F-4852-9860-99B58C988D8C}
 		{17D85100-29A7-43B7-893D-174037D7DB89} = {1C6E7837-3B86-475B-833A-139158BFA018}
 		{73E4D2BE-A71A-4D0D-8667-AFF50BEC248F} = {1C6E7837-3B86-475B-833A-139158BFA018}
+		{20DC7559-2B3C-40C6-9CCF-7F4E595024EC} = {1C6E7837-3B86-475B-833A-139158BFA018}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2548E93-EFD5-4932-B49A-B533DDAC5960}
