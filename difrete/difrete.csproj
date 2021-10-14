@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -31,6 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Template.Application\Template.Application.csproj" />
+    <ProjectReference Include="..\Template.Auth\Template.Auth.csproj" />
     <ProjectReference Include="..\Template.Data\Template.Data.csproj" />
     <ProjectReference Include="..\Template.Ioc\Template.Ioc.csproj" />
     <ProjectReference Include="..\Template.Swagger\Template.Swagger.csproj" />
