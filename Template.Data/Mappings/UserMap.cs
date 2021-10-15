@@ -13,6 +13,10 @@ namespace Template.Data.Mappings
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Password).IsRequired().HasDefaultValue("TestePassword");
+            builder.Property(x => x.Cpf).IsRequired().HasDefaultValue("12345678910");
+            builder.Property(x => x.Celular).IsRequired().HasDefaultValue("17982310203");
+
 
         }
     }
