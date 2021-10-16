@@ -14,7 +14,7 @@ using Template.Auth.Services;
 namespace Template.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize] //colocando as API's como privada
+    [ApiController, Authorize] //colocan    
 
     public class UsersController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace Template.Controllers
             return Ok(this.userService.Post(userViewModel));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] //apenas para teste. A API precisa ser privada
         public IActionResult GetById(string id)
         {
             return Ok(this.userService.GetById(id));

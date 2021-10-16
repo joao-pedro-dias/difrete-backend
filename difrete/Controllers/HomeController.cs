@@ -23,7 +23,7 @@ namespace difrete.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult SAC()
         {
             return View();
         }
