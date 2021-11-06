@@ -14,7 +14,15 @@ using Template.Auth.Services;
 namespace Template.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize] //colocando as API's como privada
+<<<<<<< HEAD
+<<<<<<< HEAD
+    [ApiController, Authorize]    
+=======
+    [ApiController, Authorize] //colocan    
+>>>>>>> 976aa890d6b08c890828079776276d8d0483fb54
+=======
+    [ApiController, Authorize] //colocan    
+>>>>>>> 976aa890d6b08c890828079776276d8d0483fb54
 
     public class UsersController : ControllerBase
     {
@@ -34,10 +42,11 @@ namespace Template.Controllers
         [HttpPost, AllowAnonymous] //com o AllowAnonymous conseguimos liberar a API para ser pública
         public IActionResult Post(UserViewModel userViewModel)
         {
+
             return Ok(this.userService.Post(userViewModel));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] //apenas para teste. A API precisa ser privada
         public IActionResult GetById(string id)
         {
             return Ok(this.userService.GetById(id));

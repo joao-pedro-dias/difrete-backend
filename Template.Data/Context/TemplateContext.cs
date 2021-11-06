@@ -24,7 +24,7 @@ namespace Template.Data.Context
 
             modelBuilder.ApplyGlobalConfigurations();
 
-            modelBuilder.SeedData();
+            //modelBuilder.SeedData();
 
             base.OnModelCreating(modelBuilder);
         }

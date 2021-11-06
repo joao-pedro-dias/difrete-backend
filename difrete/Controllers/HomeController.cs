@@ -23,7 +23,7 @@ namespace difrete.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult SAC()
         {
             return View();
         }
@@ -32,7 +32,11 @@ namespace difrete.Controllers
         {
             return View();
         }
-        public IActionResult Fretista()
+        public IActionResult Contratante()
+        {
+            return View();
+        }
+        public IActionResult Main()
         {
             return View();
         }

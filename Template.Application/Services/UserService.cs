@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿    using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -8,6 +8,7 @@ using Template.Application.ViewModels;
 using Template.Auth.Services;
 using Template.Domain.Entities;
 using Template.Domain.Interfaces;
+using System.Linq;
 
 namespace Template.Application.Services
 {
@@ -89,12 +90,14 @@ namespace Template.Application.Services
 
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
         {
+            
+
             if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
                 throw new Exception("Email/Password are required");
 
             user.Password = EncryptPassword(user.Password);
 
-            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower()
+            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower() //realizar o inner join para sair junto com o FIND()
             && user.Password.ToLower() == user.Password.ToLower());
             if (_user == null)
                 throw new Exception("User not found");
@@ -107,7 +110,7 @@ namespace Template.Application.Services
         {
             HashAlgorithm sha = new SHA1CryptoServiceProvider();
 
-            byte[] encryptedPassword = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+            byte[] encryptedPassword = sha.ComputeHash(Encoding.UTF8.GetBytes(password));   
 
             StringBuilder stringBuilder = new StringBuilder();
             foreach (var caracter in encryptedPassword)
