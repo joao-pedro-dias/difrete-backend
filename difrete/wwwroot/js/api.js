@@ -31,7 +31,7 @@
         })
 }
 
-//Realizando Get para entrar no sistema
+//Realizando Get para entrar no sistema //// FALTA FINALIZAR
 function Login() {
     let email = document.getElementById('floatingInput').value;
     let senha = document.getElementById('floatingPassword').value;
