@@ -14,15 +14,7 @@ using Template.Auth.Services;
 namespace Template.Controllers
 {
     [Route("api/[controller]")]
-<<<<<<< HEAD
-<<<<<<< HEAD
     [ApiController, Authorize]    
-=======
-    [ApiController, Authorize] //colocan    
->>>>>>> 976aa890d6b08c890828079776276d8d0483fb54
-=======
-    [ApiController, Authorize] //colocan    
->>>>>>> 976aa890d6b08c890828079776276d8d0483fb54
 
     public class UsersController : ControllerBase
     {
