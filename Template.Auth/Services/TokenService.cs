@@ -20,10 +20,24 @@ namespace Template.Auth.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Hash, user.Password),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    
+=======
                     new Claim(ClaimTypes.Name, user.Person.Name),
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim("LoginType", user.LoginType.ToString())
+>>>>>>> 976aa890d6b08c890828079776276d8d0483fb54
+=======
+                    new Claim(ClaimTypes.Name, user.Person.Name),
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim("LoginType", user.LoginType.ToString())
+>>>>>>> 976aa890d6b08c890828079776276d8d0483fb54
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
