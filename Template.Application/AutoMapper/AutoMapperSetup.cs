@@ -9,6 +9,7 @@ namespace Template.Application.AutoMapper
 {
     public class AutoMapperSetup: Profile
     {
+        //frescura...
         public AutoMapperSetup()
         {
             #region ViewModelToDomain

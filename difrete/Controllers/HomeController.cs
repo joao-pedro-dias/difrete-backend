@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace difrete.Controllers
 {
+    //controller referente ao front
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

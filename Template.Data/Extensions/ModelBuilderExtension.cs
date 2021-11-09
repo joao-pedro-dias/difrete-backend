@@ -11,6 +11,8 @@ namespace Template.Data.Extensions
 {
     public static class ModelBuilderExtension
     {
+        //Campos de data que são gerados enviados juntamente com Person e User na suas respectivas tabelas;
+        //Por algum motivo as datas estão fixas, necessário rever
 
         public static ModelBuilder ApplyGlobalConfigurations(this ModelBuilder builder)
         {

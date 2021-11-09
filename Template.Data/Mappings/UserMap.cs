@@ -9,6 +9,7 @@ namespace Template.Data.Mappings
 {
     public class UserMap:IEntityTypeConfiguration<User>
     {
+        //mapeando usuário para entrar no sistema e gerar o token. Este processo está ligado ao ToKenService.cs
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(x => x.Id).IsRequired();

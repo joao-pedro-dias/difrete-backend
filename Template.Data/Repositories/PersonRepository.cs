@@ -6,5 +6,6 @@ namespace Template.Data.Repositories
 {
     class PersonRepository
     {
+        //não lembro oq seria feito aqui...
     }
 }
