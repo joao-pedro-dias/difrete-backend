@@ -9,6 +9,7 @@ namespace Template.Data.Mappings
 {
     public class PersonMap : IEntityTypeConfiguration<Person>
     {
+        //mapeando uma pessoa, que por sinal também é um usuário que possui ID, email e senha conforme UserMap.cs
         public void Configure(EntityTypeBuilder<Person> builder)
         {
             builder.Property(x => x.Id).IsRequired();

@@ -11,6 +11,7 @@ using Template.Domain.Models;
 
 namespace Template.Data.Repositories
 {
+    //repositório referente as alterações que serão realizadas no banco de dados
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         #region 'Properties'

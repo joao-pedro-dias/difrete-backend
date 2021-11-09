@@ -12,6 +12,7 @@ using System.Linq;
 
 namespace Template.Application.Services
 {
+    //onde a mágica do mapeamento e do token acontece
     public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
@@ -32,14 +33,7 @@ namespace Template.Application.Services
 
         public bool Post(UserViewModel userViewModel)
         {
-            //User _user = new User
-            //{
-            //    /*campos que identificam user*/
-            //    Id = Guid.NewGuid(),
-            //    Email = userViewModel.Email,
-            //    Name = userViewModel.Name
-            //};
-
+            //encriptografando a senha do usuário após método POST
             User _user = mapper.Map<User>(userViewModel);
             _user.Password = EncryptPassword(_user.Password);
 
@@ -48,6 +42,7 @@ namespace Template.Application.Services
             return true;
         }
 
+        //Verificando se o usuário existe
         public UserViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid userId))
@@ -97,7 +92,7 @@ namespace Template.Application.Services
 
             user.Password = EncryptPassword(user.Password);
 
-            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower() //realizar o inner join para sair junto com o FIND()
+            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower() //aqui nesta parte, deveria ir junto o LoginType. Mas ele deve estar embutido no token
             && user.Password.ToLower() == user.Password.ToLower());
             if (_user == null)
                 throw new Exception("User not found");
