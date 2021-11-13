@@ -33,6 +33,10 @@ namespace difrete.Controllers
         {
             return View();
         }
+        public IActionResult Fretista()
+        {
+            return View();
+        }
         public IActionResult Contratante()
         {
             return View();
