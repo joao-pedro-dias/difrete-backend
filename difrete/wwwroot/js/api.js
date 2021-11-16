@@ -3,33 +3,36 @@
 
     //Recuperando os inputs do form de Fretista
     let email = document.getElementById('inputEmail').value;
-    let senha = document.getElementById('inputPassWord').value;
-    let nome = document.getElementById('validationCustom01').value;
+    let senha = document.getElementById('inputPassword').value;
+    let nome = document.getElementById('inputName').value;
     let cpf = document.getElementById('inputCpf').value;
     let celular = document.getElementById('inputPhone').value;
     let radio = document.getElementById('gridCheck').value;
 
-    if (radio.checked == "") {
-        alert('Por favor, selecione o Tipo de Endereço.');
+    //validar radio
+    //if (radio == false) {
+    //    alert('Aceite obrigatório para continuar!');
+    //}
+
+    if (nome == "") {
+    alert("Campo obrigatório. Preencha o nome!");
+    nome.focus();
     }
 
-    if (email == "" || email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+    else if (email == "" || email.indexOf('@') == -1 || email.indexOf('.') == -1) {
         alert("Campo obrigatório. E-mail inválido");
         email.focus();
     }
-    else if (senha === "") {
+    else if (senha == "") {
         alert("Campo obrigatório. Senha inválida");
         senha.focus();
     }
-    else if (nome === "") {
-        alert("Campo obrigatório. Preencha o nome!");
-        nome.focus();
-    }
-    else if (cpf === "") {
+
+    else if (cpf == "") {
         alert("Campo obrigatório. CPF inválido");
         cpf.focus();
     }
-    if (celular === "") {
+    if (celular == "") {
 
         alert("Campo obrigatório. Preencha o celular!");
         celular.focus();

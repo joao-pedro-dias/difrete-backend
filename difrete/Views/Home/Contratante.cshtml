@@ -14,13 +14,13 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="inputEmail">E-mail</label>
-                <input type="text" name="email" onblur="IsEmail()" class="form-control" id="inputEmail" placeholder="example@gmail.com">
+                <input type="text" name="email" class="form-control" id="inputEmail" placeholder="example@gmail.com">
                 <div id="msgemail"></div>
             </div>
-            @*<div class="form-group col-md-4">
+            <div class="form-group col-md-4">
                 <label for="inputConfirmPassword">Confirmar senha</label>
-                <input type="text" class="form-control" id="inputConfirmPassword" placeholder="****************"><br>
-            </div>*@
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="**********"><br>
+            </div>
         </div>
 
         <div class="form-row">
@@ -34,7 +34,7 @@
             </div>*@
             <div class="form-group col-md-4">
                 <label for="inputPhone">Número Celular</label>
-                <input type="text" class="form-control" id="inputPhone"><br>
+                <input onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" type="text" class="form-control" id="inputPhone" name="phone"><br>
             </div>
         </div>
 
@@ -45,7 +45,7 @@
             </div>*@
             <div class="form-group col-md-4">
                 <label for="inputPassWord">Senha</label>
-                <input type="password" class="form-control" id="inputPassWord" placeholder="**********">
+                <input type="password" class="form-control" id="inputPassword" placeholder="**********">
 
             </div>
             <div class="form-group col-md-4">

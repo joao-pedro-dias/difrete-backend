@@ -45,7 +45,7 @@
 
             <div class="form-group col-md-4">
                 <label for="inputConfirmPassword">Confirmar senha</label>
-                <input type="text" class="form-control" id="inputConfirmPassword"><br>
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="**********"><br>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
 
             <div class="form-group col-md-4">
                 <label for="inputPhone">Celular</label>
-                <input type="text" class="form-control" id="inputPhone"><br>
+                <input onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" type="text" name="phone" class="form-control" id="inputPhone"><br>
             </div>
 
         </div>
