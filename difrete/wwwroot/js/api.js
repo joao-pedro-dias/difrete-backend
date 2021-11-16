@@ -61,25 +61,28 @@
     }
 }
 
-//Realizando Get para entrar no sistema //// FALTA FINALIZAR
-//function Login() {
-//    let email = document.getElementById('floatingInput').value;
-//    let senha = document.getElementById('floatingPassword').value;
+//Realizando Get para entrar no sistema
+function Login() {
+    event.preventDefault();
 
-//    axios({
-//        method: 'get',
-//        url: 'https://localhost:44366/api/users',
-//        data: {
-//            email: email,
-//            password: senha,
-//        }
-//    })
-//    .then(response => {
-//        console.log(response)
-//    })
-//    .catch(error => {
-//        console.log(error)
-//    })
+    let email = document.getElementById('floatingInput').value;
+    let senha = document.getElementById('floatingPassword').value;
 
-//}
+    axios({
+        method: 'post',
+        url: 'https://localhost:44366/api/users/authenticate',
+        data: {
+            email: email,
+            password: senha,
+        }
+    })
+    .then(response => {
+        console.log(response)
+        console.log(response.data.user)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+
+}
 

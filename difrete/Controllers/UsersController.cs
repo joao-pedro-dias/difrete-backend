@@ -37,6 +37,7 @@ namespace Template.Controllers
         {
 
             return Ok(this.userService.Post(userViewModel));
+
         }
 
         [HttpGet("{id}")] //buscando pelo ID do cliente e passando parâmetro na API

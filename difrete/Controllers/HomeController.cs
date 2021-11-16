@@ -41,7 +41,12 @@ namespace difrete.Controllers
         {
             return View();
         }
-        public IActionResult Main()
+        public IActionResult MainContratante()
+        {
+            return View();
+        }
+
+        public IActionResult MainFretista()
         {
             return View();
         }
