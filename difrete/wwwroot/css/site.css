@@ -9803,7 +9803,7 @@ fieldset:disabled .btn {
 }
 
 .fw-normal {
-    font-weight: 400 !important;
+    font-weight: 200 !important;
 }
 
 .fw-medium {
@@ -14311,7 +14311,7 @@ fieldset:disabled .btn {
     }
 
     .border-lg-0 {
-        border: 0 !important;
+        border: none;
     }
 
     .border-lg-top {

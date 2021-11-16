@@ -58,7 +58,7 @@
                             </label>
                         </div>
                     </div>
-                    <button class="btn btn-primary" onclick="formContratante()" id="salvar" type="submit">Salvar</button>
+                    <button asp-controller="Home" asp-action="MainContratante" class="btn btn-primary" onclick="formContratante()" id="salvar" type="submit">Salvar</button>
 
                 </center>
             </div>
@@ -66,61 +66,44 @@
     </form>
 
     <section id="modal">
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="fw-normal fs-6 fs-xxl-7">Conecte-se antes de solicitar um serviço</h1>
+                    <p class="fs-1 mb-5">O e-mail é uma identificação única, para que a Difrete saiba se você é um fretista ou contratante. <br /></p>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput">
+                        <label for="floatingInput">Email</label>
                     </div>
-                    <div class="modal-body">
-                        <h3 class="fw-normal fs-6 fs-xxl-7">Conecte-se antes de solicitar um serviço</h3>
-                        <p class="fs-1 mb-5">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s. <br />
-                        </p>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput">
-                            <label for="floatingInput">Email</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword">
-                            <label for="floatingPassword">Password</label>
-                        </div><br>
-                        <a href="#">Esqueci minha senha</a><br><br>
-                        <center>
-                            <button type="button" id="btn-modal"
-                                    class="btn btn-primary">
-                                Entrar
-                            </button><br><br>
-                            <a href="#" aria-label="Close" data-dismiss="modal" data-toggle="modal">Ainda não tem uma conta? Cadastrar</a>
-                        </center>
-                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword">
+                        <label for="floatingPassword">Password</label>
+                    </div><br>
+                    <a href="#">Esqueci minha senha</a><br><br>
+                    <center>
+                        <button onclick="Login()" type="submit" id="btn-modal" class="btn btn-primary">Entrar</button><br><br>
+                        <a href="#" aria-label="Close" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Ainda não tem uma conta? Cadastrar</a>
+                    </center>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="modal">
         <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <h3 class="fw-normal fs-6 fs-xxl-7">
-                            Vamos realizar o cadastro? É simples e fácil
-                        </h3>
-                        <p class="fs-1 mb-5">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s. <br />
-                        </p>
+                        <h3 class="fw-normal fs-6 fs-xxl-7">Vamos realizar o cadastro? É simples  e fácil</h3>
+                        <p class="fs-1 mb-5">Lembre-se, o e-mail é um registro único dentro do sistema. Então fique atento para o e-mail que for cadastrado! <br /></p>
                         <a class="ancora-modal" asp-controller="Home" asp-action="Fretista">Cadastrar-se como fretista</a><br>
                         <a class="ancora-modal" asp-controller="Home" asp-action="Contratante">Cadastrar-se como contratante</a>
                     </div>

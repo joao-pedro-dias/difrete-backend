@@ -6,7 +6,7 @@
     @*<title>@ViewData["Title"] - difrete</title>*@
     <title>@ViewData["Title"] - Difrete</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/reset.css" />
@@ -32,19 +32,19 @@
         <main class="main" id="top">
             <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" height="45" alt="logo" /></a>
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/logo.png" height="45" alt="logo" /></a>
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                         @*<ul class="navbar-nav flex-grow-1">*@
                         <button class="navbar-toggler" type="submit" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"> </span>
                         </button>
-                        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
                                 <li class="nav-item px-2"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                                 <li class="nav-item px-2"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SAC">Perguntas frequentes</a></li>
                                 <li class="nav-item px-2"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
                                 <li class="nav-item px-2">
-                                    <button class="nav-link btn-demo" data-toggle="modal" data-target="#myModal">Entrar</button>
+                                    <button class="btn btn-link order-1 order-lg-0 ms-lg-3" data-toggle="modal" data-target="#myModal">Entrar</button>
                                     <button class="btn btn-demo btn-primary order-1 order-lg-0 ms-lg-3" data-toggle="modal" data-target="#myModal2">Cadastrar</button>
                                     @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Entrar</a>*@
                                 </li>
@@ -73,7 +73,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Sistema Desenvolvimento para o Trabalho de Conclusão de Curso
+            &copy; 2021 - Sistema Desenvolvido para o Trabalho de Conclusão de Curso
         </div>
     </footer>
 
