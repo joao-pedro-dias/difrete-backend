@@ -12,40 +12,32 @@
                 <label for="inputRntrc">Número da RNTRC (registro na ANTT)</label>
                 <input type="text" class="form-control" id="inputRntrc">
             </div>
-            @*<div class="form-group col-md-4">
-                <label for="inputCounty">Município</label>
-                <input type="text" class="form-control" id="inputCounty">
-            </div>*@
+
+            <div class="form-group col-md-4">
+                <label for="inputRazaoSocial">Razão Social</label>
+                <input type="text" class="form-control" id="inputRazaoSocial">
+            </div>
 
             <div class="form-group col-md-4">
                 <label for="inputCnpj">CNPJ</label>
                 <input oninput="mascaraCnpj(this)" type="text" class="form-control" id="inputCnpj">
             </div>
-
-           
         </div>
 
         <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputName">Nome completo</label>
+                <input type="text" class="form-control" id="inputName">
+            </div>
+
              <div class="form-group col-md-4">
                 <label for="inputEmail">E-mail</label>
-                <input type="text" class="form-control" id="inputEmail" placeholder="example@gmail.com"><br>
-            </div>
+                <input type="text" class="form-control" id="inputEmail" placeholder="example@gmail.com">
+             </div>
 
             <div class="form-group col-md-4">
                 <label for="inputConfirmEmail">Confirmar e-mail</label>
-                <input type="text" class="form-control" id="inputConfirmEmail"><br>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputPassword">Senha</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="**********"><br>
-            </div>
-
-            <div class="form-group col-md-4">
-                <label for="inputConfirmPassword">Confirmar senha</label>
-                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="**********"><br>
+                <input type="text" class="form-control" id="inputConfirmEmail">
             </div>
         </div>
 
@@ -56,25 +48,40 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="inputPhone">Celular</label>
-                <input onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" type="text" name="phone" class="form-control" id="inputPhone"><br>
+                <label for="inputPassword">Senha</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="**********">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputConfirmPassword">Confirmar senha</label>
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="**********">
             </div>
 
         </div>
 
         <div class="form-row">
+            @*<div class="form-group col-md-4">
+                <label for="inputBirthDate">Data de nascimento</label>
+                <input type="text" class="form-control" id="inputBirthDate">
+            </div>*@
             <div class="form-group col-md-4">
+                <label for="inputPhone">Número Celular</label>
+                <input onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" type="text" class="form-control" id="inputPhone">
 
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Li e Aceito condições de uso
-                        </label>
+            </div>
+            <div class="form-group col-md-4">
+                <center>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Li e Aceito condições de uso
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <a href="telaFretista.html" onclick="formContratante()" type="submit" class="btn btn-primary">Salvar</a>
-                <!-- <button type="submit" class="btn btn-primary">Entrar</button> -->
+                    <button asp-controller="Home" asp-action="MainFretista" class="btn btn-primary" onclick="formFretista()" id="salvar" type="submit">Salvar</button>
+
+                </center>
             </div>
         </div>
     </form>

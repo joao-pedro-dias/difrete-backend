@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Template.Data.Repositories
 {
-    class PersonRepository
+    class FretistaRepository
     {
         //só precisa existir para que td dê certo
     }

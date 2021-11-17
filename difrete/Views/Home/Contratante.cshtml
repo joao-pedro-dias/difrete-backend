@@ -18,24 +18,27 @@
                 <div id="msgemail"></div>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputConfirmPassword">Confirmar senha</label>
-                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="**********"><br>
+                <label for="inputCpf">CPF</label>
+                <input oninput="mascaraCpf(this)" type="text" class="form-control" id="inputCpf">
             </div>
+
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputCpf">CPF</label>
-                <input oninput="mascaraCpf(this)" type="text" class="form-control" id="inputCpf">
+                <label for="inputPassWord">Senha</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="**********">
+
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputConfirmPassword">Confirmar senha</label>
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="**********">
             </div>
             @*<div class="form-group col-md-4">
                 <label for="inputConfirmEmail">Confirmar e-mail</label>
-                <input type="text" class="form-control" id="inputConfirmEmail"><br>
+                <input type="text" class="form-control" id="inputConfirmEmail">
             </div>*@
-            <div class="form-group col-md-4">
-                <label for="inputPhone">Número Celular</label>
-                <input onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" type="text" class="form-control" id="inputPhone" name="phone"><br>
-            </div>
+            
         </div>
 
         <div class="form-row">
@@ -44,9 +47,8 @@
                 <input type="text" class="form-control" id="inputBirthDate">
             </div>*@
             <div class="form-group col-md-4">
-                <label for="inputPassWord">Senha</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="**********">
-
+                <label for="inputPhone">Número Celular</label>
+                <input onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" type="text" class="form-control" id="inputPhone" name="phone">
             </div>
             <div class="form-group col-md-4">
                 <center>

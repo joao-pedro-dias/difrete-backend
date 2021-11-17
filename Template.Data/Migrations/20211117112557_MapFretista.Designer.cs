@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(TemplateContext))]
-    partial class TemplateContextModelSnapshot : ModelSnapshot
+    [Migration("20211117112557_MapFretista")]
+    partial class MapFretista
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 17, 9, 5, 22, 33, DateTimeKind.Local).AddTicks(2487));
+                        .HasDefaultValue(new DateTime(2021, 11, 17, 8, 25, 56, 852, DateTimeKind.Local).AddTicks(3819));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -40,9 +42,6 @@ namespace Template.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
-
-                    b.Property<string>("RazaoSocial")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rntrc")
                         .HasColumnType("nvarchar(max)");
@@ -67,7 +66,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 17, 9, 5, 22, 49, DateTimeKind.Local).AddTicks(685));
+                        .HasDefaultValue(new DateTime(2021, 11, 17, 8, 25, 56, 869, DateTimeKind.Local).AddTicks(7621));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -94,7 +93,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 17, 9, 5, 22, 49, DateTimeKind.Local).AddTicks(1653));
+                        .HasDefaultValue(new DateTime(2021, 11, 17, 8, 25, 56, 869, DateTimeKind.Local).AddTicks(8623));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -110,6 +109,9 @@ namespace Template.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
+
+                    b.Property<int>("LoginType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .IsRequired()
