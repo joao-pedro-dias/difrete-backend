@@ -8,7 +8,6 @@ using Template.Application.ViewModels;
 using Template.Auth.Services;
 using Template.Domain.Entities;
 using Template.Domain.Interfaces;
-using System.Linq;
 
 namespace Template.Application.Services
 {

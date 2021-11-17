@@ -23,7 +23,6 @@ namespace Template.Auth.Services
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Hash, user.Password),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    //PRECISO PASSAR AQUI O TIPO DE USUÁRIO
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

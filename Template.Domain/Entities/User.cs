@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Template.Application.Enum;
 using Template.Domain.Models;
 
 namespace Template.Domain.Entities
@@ -13,6 +12,6 @@ namespace Template.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public Person Person { get; set; }
-        public LoginType LoginType { get; set; }
+        public Fretista Fretista { get; set; }
     }
 }
