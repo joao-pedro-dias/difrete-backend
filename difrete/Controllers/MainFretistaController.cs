@@ -10,39 +10,31 @@ using System.Threading.Tasks;
 namespace difrete.Controllers
 {
     //controller referente ao front
-    public class HomeController : Controller
+    public class MainFretistaController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<MainFretistaController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public MainFretistaController(ILogger<MainFretistaController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult MainFretista()
         {
             return View();
         }
-
-        public IActionResult SAC()
+        public IActionResult MainFretistaServicoDisp()
         {
             return View();
         }
-
-        
-        public IActionResult About()
+        public IActionResult MainFretistaServicoRealizado()
         {
             return View();
         }
-        public IActionResult Fretista()
+        public IActionResult MainFretistaCriarServ()
         {
             return View();
         }
-        public IActionResult Contratante()
-        {
-            return View();
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

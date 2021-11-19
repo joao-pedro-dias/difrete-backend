@@ -12,7 +12,7 @@ namespace Template.Auth.Services
 {
     public static class TokenService
     {
-        public static string GenerateToken(User user)
+        public static string GenerateToken(User user, Person person)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -23,6 +23,8 @@ namespace Template.Auth.Services
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Hash, user.Password),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, person.Name),
+
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

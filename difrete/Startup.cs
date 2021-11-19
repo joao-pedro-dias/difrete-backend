@@ -71,6 +71,7 @@ namespace difrete
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/MainFretista/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -91,6 +92,22 @@ namespace difrete
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=MainFretista}/{action=MainFretista}/{id?}"); //aqui que a gente faz a rota das paradas
+                //Link referente a route: https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/routing?view=aspnetcore-6.0
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=MainContratante}/{action=MainContratante}/{id?}"); //aqui que a gente faz a rota das paradas
+                //Link referente a route: https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/routing?view=aspnetcore-6.0
+            });
+
         }
     }
 }

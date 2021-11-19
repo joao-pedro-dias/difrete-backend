@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Criar Serviço";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutMainFretista.cshtml";
+}
+
+<body>
+      <div class="wrapper2">
+        <h1>Criar Serviço</h1>
+        <p>Os serviços aqui criados serão disponibilizados para os contratantes</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Criar
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deseja criar um serviço?</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>A criação de um serviço implica na criação de uma ordem de serviço que apenas informa ao contratante a sua disponilidade atual.</p><br/>
+                <p>Este serviço não possui prazo de validade e se for necessário informar ao contratante que você não está mais disponível, basta excluí-lo.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-success">Criar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+        <hr/>
+        <ul class="grid cards">
+            <li>
+                <h2>Serviço</h2>
+                <h5>Nome: #NomeFretista</h5>
+                <p>Celular: #CelularFretista</p>
+                <p>E-mail: #EmailFretista</p>
+                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">Excluir</button></center><br/>
+              </li>
+        </ul>
+
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Excluir disponibilidade?</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Realizando a exclusão desta ordem de serviço, o contratante não terá mais acesso a sua disponibilidade</p></strong>
+                <p>Isto significa que você não receberá mais solicitações de serviço</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não, voltar</button>
+                <button type="button" class="btn btn-danger">Sim, excluir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+</body>

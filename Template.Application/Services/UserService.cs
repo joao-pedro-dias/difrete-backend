@@ -16,7 +16,7 @@ namespace Template.Application.Services
     {
         private readonly IUserRepository userRepository;
         private readonly IMapper mapper;
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IPersonRepository personRepository, IMapper mapper)
         {
             this.userRepository = userRepository;
             this.mapper = mapper;
@@ -24,12 +24,10 @@ namespace Template.Application.Services
         public List<UserViewModel> Get()
         {
             IEnumerable<User> _users = this.userRepository.GetAll();
-
             List<UserViewModel> _userViewModels = mapper.Map<List<UserViewModel>>(_users);
 
             return _userViewModels;
         }
-
         public bool Post(UserViewModel userViewModel)
         {
             //encriptografando a senha do usuário após método POST
@@ -84,19 +82,17 @@ namespace Template.Application.Services
 
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
         {
-            
-
             if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
                 throw new Exception("Email/Password are required");
 
             user.Password = EncryptPassword(user.Password);
 
-            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower() //aqui nesta parte, deveria ir junto o LoginType. Mas ele deve estar embutido no token
-            && user.Password.ToLower() == user.Password.ToLower());
+            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower() && user.Password.ToLower() == user.Password.ToLower());
             if (_user == null)
                 throw new Exception("User not found");
 
-            return new UserAuthenticateResponseViewModel (mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
+            return new UserAuthenticateResponseViewModel (mapper.Map<UserViewModel>(_user));
+            //, TokenService.GenerateToken(_user)
             //convertendo o objeto e gerando Token. Retornando parâmetro conforme "UserAuthenticateResponseViewModel.cs" >> public UserAuthenticateResponseViewModel(UserViewModel user, string token)
         }
 
@@ -114,5 +110,6 @@ namespace Template.Application.Services
 
             return stringBuilder.ToString();
         }
+
     }
 }

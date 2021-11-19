@@ -146,16 +146,17 @@ function Login() {
         url: 'https://localhost:44366/api/users/authenticate',
         data: {
             email: email,
-            password: senha,
+            password: senha
         }
     })
     .then(response => {
         console.log(response)
         console.log(response.data.user)
+        console.log(response.data.person)
+        console.log(response.data.fretista)
     })
     .catch(error => {
-        console.log(error)
+    console.log(error)
     })
-
-}
-
+ }
+    
