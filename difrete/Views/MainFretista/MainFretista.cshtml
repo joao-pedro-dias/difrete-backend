@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Fretista";
+}
+
+@{
+    Layout = "~/Views/Shared/_LayoutMainFretista.cshtml";
+}
+
+<body>
+      <div class="wrapper2">
+        <h1>Requisição de serviços</h1>
+        <p>Solicitação de serviços por parte de contratantes</p>
+        <ul class="grid cards">
+            <li>
+                <h2>Solicitação</h2>
+                <h5>Nome: #NomeContratante</h5>
+                <p>Celular: #CelularContratante</p>
+                <p>E-mail: #EmailContratante</p>
+                <center><button button type="button" class="btn btn-success" data-toggle="modal" data-target="#success">Aceitar</button>
+                <button button type="button" class="btn btn-danger" data-toggle="modal" data-target="#refuse">Recusar</button></center>
+                <br/>
+              </li>
+            <li>
+                <h2>Solicitação</h2>
+                <h5>Nome: #NomeContratante</h5>
+                <p>Celular: #CelularContratante</p>
+                <p>E-mail: #EmailContratante</p>
+                <center><button button type="button" class="btn btn-success" data-toggle="modal" data-target="#success">Aceitar</button>
+                <button button type="button" class="btn btn-danger" data-toggle="modal" data-target="#refuse">Recusar</button></center>
+                <br/>
+            </li>
+
+            <li>
+                <h2>Solicitação</h2>
+                <h5>Nome: #NomeContratante</h5>
+                <p>Celular: #CelularContratante</p>
+                <p>E-mail: #EmailContratante</p>
+                <center><button button type="button" class="btn btn-success" data-toggle="modal" data-target="#success">Aceitar</button>
+                <button button type="button" class="btn btn-danger" data-toggle="modal" data-target="#refuse">Recusar</button></center>
+                <br/>
+              </li>
+            <li>
+                <h2>Solicitação</h2>
+                <h5>Nome: #NomeContratante</h5>
+                <p>Celular: #CelularContratante</p>
+                <p>E-mail: #EmailContratante</p>
+                <center><button button type="button" class="btn btn-success" data-toggle="modal" data-target="#success">Aceitar</button>
+                <button button type="button" class="btn btn-danger" data-toggle="modal" data-target="#refuse">Recusar</button></center>
+                <br/>
+            </li>
+        </ul>
+
+        <div class="modal fade" id="success" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Aceitar solicitação?</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Aceitando a solicitação o contratante será informado que o serviço foi aceito.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-success">Aceitar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="refuse" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Recusar solicitação?</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Recusando a solicitação o contratante será informado que o serviço foi recusado.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-success">Aceitar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+</body>

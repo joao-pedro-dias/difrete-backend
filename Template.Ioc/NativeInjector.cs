@@ -11,13 +11,28 @@ namespace Template.Ioc
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            #region Services
-            services.AddScoped<IUserService, UserService>();
-
-            #endregion
-
             #region Repositories
             services.AddScoped<IUserRepository, UserRepository>();
+            #endregion
+
+            #region Repositories2
+            services.AddScoped<IFretistaRepository, FretistaRepository>();
+            #endregion
+
+            #region Repositories3
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            #endregion
+
+            #region Services
+            services.AddScoped<IUserService, UserService>();
+            #endregion
+
+            #region Services2
+            services.AddScoped<IFretistaService, FretistaService>();
+            #endregion
+
+            #region Services3
+            services.AddScoped<IPersonService, PersonService>();
             #endregion
         }
     }

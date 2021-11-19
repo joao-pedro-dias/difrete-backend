@@ -17,7 +17,6 @@ namespace Template.Data.Mappings
             builder.Property(x => x.Cpf).IsRequired().HasDefaultValue("12345678910");
             builder.Property(x => x.Celular).IsRequired().HasDefaultValue("17982310203");
 
-
         }
     }
 }

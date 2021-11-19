@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Contratante";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutMainContratante.cshtml";
+}
+
+<body>
+      <div class="wrapper2">
+        <h1>Serviços disponíveis</h1>
+        <p>Fretistas que estão disponíveis para serviço</p>
+        <ul class="grid cards">
+            <li>
+                <h2>Serviço</h2>
+                <h5>Nome: #NomeFretista</h5>
+                <p>Celular: #CelularFretista</p>
+                <p>E-mail: #EmailFretista</p>
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#success">Solicitar</button></center>
+                <br/>
+            </li>
+            <li>
+                <h2>Serviço</h2>
+                <h5>Nome: #NomeFretista</h5>
+                <p>Celular: #CelularFretista</p>
+                <p>E-mail: #EmailFretista</p>
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#success">Solicitar</button></center>
+                <br/>
+            </li>
+            <li>
+                <h2>Serviço</h2>
+                <h5>Nome: #NomeFretista</h5>
+                <p>Celular: #CelularFretista</p>
+                <p>E-mail: #EmailFretista</p>
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#success">Solicitar</button></center>
+                <br/>
+            </li>
+            <li>
+                <h2>Serviço</h2>
+                <h5>Nome: #NomeFretista</h5>
+                <p>Celular: #CelularFretista</p>
+                <p>E-mail: #EmailFretista</p>
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#success">Solicitar</button></center>
+                <br/>
+            </li>
+        </ul>
+
+        <div class="modal fade" id="success" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Deseja enviar solicitação?</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Enviando a solicitação de serviço, o fretista ficará ciente de que você precisa do serviço.</p>
+                <p>O serviço só acontece se o fretista realizar o aceite!</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-success">Solicitar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>

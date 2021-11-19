@@ -9,9 +9,9 @@ namespace Template.Domain.Entities
     {
         //Minha entidade Pessoa
         //Entidade :: Pessoa :: User
-
         public string Name { get; set; }
         public string Cpf { get; set; }
         public string Celular { get; set; }
+        public User User { get; set; }
     }
 }

@@ -15,16 +15,17 @@ namespace Template.Data.Context
         #region "DBSets"
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Fretista> Fretistas { get; set; }
 
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserMap());
-
+            modelBuilder.ApplyConfiguration(new PersonMap());
+            modelBuilder.ApplyConfiguration(new FretistaMap());
             modelBuilder.ApplyGlobalConfigurations();
-
-            //modelBuilder.SeedData();
 
             base.OnModelCreating(modelBuilder);
         }

@@ -11,5 +11,6 @@ namespace Template.Application.ViewModels
         public string Name { get; set; }
         public string Cpf { get; set; }
         public string Celular { get; set; }
+        
     }
 }
