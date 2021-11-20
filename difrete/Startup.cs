@@ -18,6 +18,8 @@ using System.Text;
 using Template.Auth.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace difrete
 {
@@ -64,17 +66,28 @@ namespace difrete
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseExceptionHandler(errorApp =>
             {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseExceptionHandler("/MainFretista/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+                errorApp.Run(async context =>
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    context.Response.ContentType = "application/json";
+
+                    var exceptionHandlerPathFeature =
+                        context.Features.Get<IExceptionHandlerPathFeature>();
+
+
+                    var bytes = Encoding.UTF8.GetBytes("{ \"message\": \"" + exceptionHandlerPathFeature.Error.Message + "\" }");
+
+                    await context.Response.Body.WriteAsync(bytes, 0, bytes.Length);
+
+                });
+            });
+
+            //app.UseExceptionHandler("/Home/Error");
+            //app.UseExceptionHandler("/MainFretista/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
 
             app.UseSwaggerConfiguration();
 

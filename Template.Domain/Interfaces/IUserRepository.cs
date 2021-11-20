@@ -8,5 +8,6 @@ namespace Template.Domain.Interfaces
     public interface IUserRepository: IRepository<User>
     {
         IEnumerable<User> GetAll();
+        User FindActiveUser(string user, string password);
     }
 }

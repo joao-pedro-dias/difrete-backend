@@ -28,15 +28,25 @@ namespace Template.Application.Services
 
             return _userViewModels;
         }
-        public bool Post(UserViewModel userViewModel)
+        public UserAuthenticateResponseViewModel Post(UserViewModel userViewModel)
         {
+            var foundUser = userRepository.Find(x => x.Email.ToLower() == userViewModel.Email.ToLower());
+
+            if(foundUser != null)
+            {
+                throw new Exception("Email " + foundUser.Email + " já cadastrado");
+            }
+
             //encriptografando a senha do usuário após método POST
             User _user = mapper.Map<User>(userViewModel);
             _user.Password = EncryptPassword(_user.Password);
 
-            this.userRepository.Create(_user);
+            var createdUser = this.userRepository.Create(_user);
+            createdUser.Person.User = null;
+            createdUser.Fretista.User = null;
+            createdUser.Password = null;
 
-            return true;
+            return new UserAuthenticateResponseViewModel(mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
         }
 
         //Verificando se o usuário existe
@@ -87,13 +97,11 @@ namespace Template.Application.Services
 
             user.Password = EncryptPassword(user.Password);
 
-            User _user = this.userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower() && user.Password.ToLower() == user.Password.ToLower());
+            var _user = this.userRepository.FindActiveUser(user.Email, user.Password);
             if (_user == null)
                 throw new Exception("User not found");
 
-            return new UserAuthenticateResponseViewModel (mapper.Map<UserViewModel>(_user));
-            //, TokenService.GenerateToken(_user)
-            //convertendo o objeto e gerando Token. Retornando parâmetro conforme "UserAuthenticateResponseViewModel.cs" >> public UserAuthenticateResponseViewModel(UserViewModel user, string token)
+            return new UserAuthenticateResponseViewModel (mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
         }
 
         private string EncryptPassword(string password)

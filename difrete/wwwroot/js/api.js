@@ -1,4 +1,17 @@
-﻿function formContratante() {
+﻿// PASSOS: LIB PARA DECODIFICAR JWT
+// ADICIONAR JWT NO CADASTRO DE CONTRATANTE
+// ADICIONAR JWT NO LOGIN
+
+
+axios.interceptors.request.use(function (config) {
+    console.log(config)
+    config.headers.Bearer = "Bearer " + localStorage.getItem('jwt')
+    return config;
+}, function (error) {
+    return Promise.reject(error);
+});
+
+function formContratante() {
     event.preventDefault();
 
     //Recuperando os inputs do form de Contratante
@@ -53,9 +66,12 @@
                 },
             }
         }).then(response => {
-            console.log(response)
+            console.log(response.data)
+            localStorage.setItem("jwt", response.data.token)
+            window.location.href = "/MainContratante"
         }).catch(error => {
-            console.log(error)
+            console.log(error.response.data)
+            alert(error.response.data.message)
         })
     }
 }
@@ -127,9 +143,12 @@ function formFretista() {
                 }
             }
         }).then(response => {
-            console.log(response)
+            console.log(response.data)
+            localStorage.setItem("jwt", response.data.token)
+            window.location.href = "/MainFretista"
         }).catch(error => {
-            console.log(error)
+            console.log(error.response.data)
+            alert(error.response.data.message)
         })
     }
 }
