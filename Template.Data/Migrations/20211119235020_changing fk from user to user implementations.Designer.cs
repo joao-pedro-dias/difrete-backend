@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(TemplateContext))]
-    partial class TemplateContextModelSnapshot : ModelSnapshot
+    [Migration("20211119235020_changing fk from user to user implementations")]
+    partial class changingfkfromusertouserimplementations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +34,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 19, 23, 40, 12, 408, DateTimeKind.Local).AddTicks(2230));
+                        .HasDefaultValue(new DateTime(2021, 11, 19, 20, 50, 19, 637, DateTimeKind.Local).AddTicks(9950));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -57,8 +59,7 @@ namespace Template.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Fretistas");
                 });
@@ -84,7 +85,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 19, 23, 40, 12, 409, DateTimeKind.Local).AddTicks(6341));
+                        .HasDefaultValue(new DateTime(2021, 11, 19, 20, 50, 19, 639, DateTimeKind.Local).AddTicks(1420));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -104,8 +105,7 @@ namespace Template.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Persons");
                 });
@@ -119,7 +119,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 19, 23, 40, 12, 409, DateTimeKind.Local).AddTicks(6746));
+                        .HasDefaultValue(new DateTime(2021, 11, 19, 20, 50, 19, 639, DateTimeKind.Local).AddTicks(1926));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -145,8 +145,8 @@ namespace Template.Data.Migrations
             modelBuilder.Entity("Template.Domain.Entities.Fretista", b =>
                 {
                     b.HasOne("Template.Domain.Entities.User", "User")
-                        .WithOne("Fretista")
-                        .HasForeignKey("Template.Domain.Entities.Fretista", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -156,19 +156,12 @@ namespace Template.Data.Migrations
             modelBuilder.Entity("Template.Domain.Entities.Person", b =>
                 {
                     b.HasOne("Template.Domain.Entities.User", "User")
-                        .WithOne("Person")
-                        .HasForeignKey("Template.Domain.Entities.Person", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.User", b =>
-                {
-                    b.Navigation("Fretista");
-
-                    b.Navigation("Person");
                 });
 #pragma warning restore 612, 618
         }

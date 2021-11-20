@@ -7,12 +7,13 @@ using System.Security.Principal;
 using System.Text;
 using Template.Auth.Models;
 using Template.Domain.Entities;
+using Template.Auth.Enum;
 
 namespace Template.Auth.Services
 {
     public static class TokenService
     {
-        public static string GenerateToken(User user, Person person)
+        public static string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -20,10 +21,9 @@ namespace Template.Auth.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
+                    new Claim(ClaimTypes.Role, user.Fretista != null ? TipoLogin.FRETISTA.ToString() : TipoLogin.CONTRATANTE.ToString()),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Hash, user.Password),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, person.Name),
 
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
