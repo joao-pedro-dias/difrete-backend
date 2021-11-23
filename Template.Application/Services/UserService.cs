@@ -43,8 +43,12 @@ namespace Template.Application.Services
 
             var createdUser = this.userRepository.Create(_user);
             createdUser.Person.User = null;
-            createdUser.Fretista.User = null;
             createdUser.Password = null;
+
+            if (createdUser.Fretista != null)
+            {
+                createdUser.Fretista.User = null;
+            }
 
             return new UserAuthenticateResponseViewModel(mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
         }
