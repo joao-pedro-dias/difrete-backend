@@ -31,9 +31,6 @@ namespace Template.Ioc
             services.AddScoped<IFretistaService, FretistaService>();
             #endregion
 
-            #region Services3
-            services.AddScoped<IPersonService, PersonService>();
-            #endregion
         }
     }
 }

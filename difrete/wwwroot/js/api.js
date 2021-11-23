@@ -1,13 +1,29 @@
-﻿// PASSOS: LIB PARA DECODIFICAR JWT
-// ADICIONAR JWT NO CADASTRO DE CONTRATANTE
-// ADICIONAR JWT NO LOGIN
-
+﻿// 1 consulta de fretistas ativos
+// 2 endpoint para solicitar um fretista
+// 3 endpoint para consultar solicitações pendentes
+// 4 endopint para excluir uma solicitação
+// 5 endpoint para consultar solicitações finalizadas
 
 axios.interceptors.request.use(function (config) {
-    console.log(config)
-    config.headers.Bearer = "Bearer " + localStorage.getItem('jwt')
+    if (!isJwtExpired()) {
+        config.headers.Bearer = "Bearer " + localStorage.getItem('jwt')
+    }
     return config;
 }, function (error) {
+    return Promise.reject(error);
+});
+
+axios.interceptors.response.use(function (response) {
+    return response;
+}, function (error) {
+    if (error.response.status === 401) {
+        alert('Sessão expirada!')
+        window.location.href = '/Home/Index'
+    } else {
+        if (!!error?.response?.data?.message) {
+            alert(error.response.data.message)
+        }
+    }
     return Promise.reject(error);
 });
 
@@ -66,12 +82,8 @@ function formContratante() {
                 },
             }
         }).then(response => {
-            console.log(response.data)
-            localStorage.setItem("jwt", response.data.token)
+            guardarJwt(response.data.token)
             window.location.href = "/MainContratante"
-        }).catch(error => {
-            console.log(error.response.data)
-            alert(error.response.data.message)
         })
     }
 }
@@ -143,12 +155,8 @@ function formFretista() {
                 }
             }
         }).then(response => {
-            console.log(response.data)
-            localStorage.setItem("jwt", response.data.token)
+            guardarJwt(response.data.token)
             window.location.href = "/MainFretista"
-        }).catch(error => {
-            console.log(error.response.data)
-            alert(error.response.data.message)
         })
     }
 }
@@ -168,14 +176,13 @@ function Login() {
             password: senha
         }
     })
-    .then(response => {
-        console.log(response)
-        console.log(response.data.user)
-        console.log(response.data.person)
-        console.log(response.data.fretista)
-    })
-    .catch(error => {
-    console.log(error)
+        .then(response => {
+            guardarJwt(response.data.token)
+            if (isFretista()) {
+                window.location = '/MainFretista'
+            } else if (isContratante()) {
+                window.location = '/MainContratante'
+            }
     })
  }
     

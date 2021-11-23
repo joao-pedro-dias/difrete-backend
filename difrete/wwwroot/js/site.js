@@ -14,7 +14,11 @@
 
 	$('#sidebarCollapse').on('click', function () {
 		$('#sidebar').toggleClass('active');
-	});
+    });
+
+    setTimeout(function () {
+        $('#user-email').text(getJwt().email)
+    })
 
 })(jQuery);
 
