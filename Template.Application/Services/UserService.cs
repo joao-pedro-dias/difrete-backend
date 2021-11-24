@@ -32,9 +32,9 @@ namespace Template.Application.Services
         {
             var foundUser = userRepository.Find(x => x.Email.ToLower() == userViewModel.Email.ToLower());
 
-            if(foundUser != null)
+            if (foundUser != null)
             {
-                throw new Exception("Email " + foundUser.Email + " já cadastrado");
+                throw new Exception("E-mail já cadastrado!");
             }
 
             //encriptografando a senha do usuário após método POST
@@ -97,7 +97,7 @@ namespace Template.Application.Services
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
         {
             if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
-                throw new Exception("Email/Password are required");
+                throw new Exception("Preencha E-mail/ Senha");
 
             user.Password = EncryptPassword(user.Password);
 
