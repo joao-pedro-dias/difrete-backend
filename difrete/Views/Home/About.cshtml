@@ -7,6 +7,11 @@
 }
 
 <section class="py-xxl-10 pb-0" id="home">
+    <a asp-controller="Home" asp-action="Index"><h5><i class="fas fa-arrow-left"></i> Voltar</h5><br></a>
+    <br>
+        <h2>Trabalho de Conclusão de curso</h2>
+        <p>Sistemas de Informação</p>
+    
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end">
@@ -14,8 +19,7 @@
                         src="~/assets/img/about.png" alt="hero-header" />
             </div>
             <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-8">
-                <h1 class="fw-normal fs-6 fs-xxl-7">TCC - Sistemas de Informação</h1>
-                <p class="fs-1 mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. <br /></p><a class="btn btn-primary me-2 btn-demo" data-toggle="modal" data-target="#myModal2" role="button">
+                <p class="fs-1 mb-5">Sistema desenvolvido para a conclusão do curso Sistemas de Informação na União das Faculdades dos Grandes Lagos de São José do Rio Preto-SP. <br /></p><a class="btn btn-primary me-2 btn-demo" data-toggle="modal" data-target="#myModal2" role="button">
                     Cadastrar<i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
@@ -43,7 +47,7 @@
                     </div><br>
                     <a href="#">Esqueci minha senha</a><br><br>
                     <center>
-                        <button type="button" id="btn-modal" class="btn btn-primary">Entrar</button><br><br>
+                        <button onclick="Login()" type="submit" id="btn-modal" class="btn btn-primary">Entrar</button><br><br>
                         <a href="#" aria-label="Close" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Ainda não tem uma conta? Cadastrar</a>
                     </center>
                 </div>

@@ -4,6 +4,8 @@
 // 4 endopint para excluir uma solicitação
 // 5 endpoint para consultar solicitações finalizadas
 
+
+/*REQUEST*/
 axios.interceptors.request.use(function (config) {
     if (!isJwtExpired()) {
         config.headers.Bearer = "Bearer " + localStorage.getItem('jwt')
@@ -13,6 +15,7 @@ axios.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 
+/*RESPONSE*/
 axios.interceptors.response.use(function (response) {
     return response;
 }, function (error) {
@@ -20,9 +23,28 @@ axios.interceptors.response.use(function (response) {
         alert('Sessão expirada!')
         window.location.href = '/Home/Index'
     } else {
-        if (!!error?.response?.data?.message) {
-            alert(error.response.data.message)
+        if (error?.response?.data?.message) {
+            if (error.response.data.message === "E-mail já cadastrado!") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'E-mail já cadastrado!',
+                })
+            } else if (error.response.data.message === "E-mail/ Senha inválidos") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'E-mail/ Senha inválidos',
+                })
+            } else if (error.response.data.message === "Preencha E-mail/ Senha") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Preencha E-mail/ Senha',
+                })
+            }
         }
+        /*alert(error.response.data.message)*/
+        
     }
     return Promise.reject(error);
 });
@@ -44,27 +66,27 @@ function formContratante() {
     //}
 
     if (nome == "") {
-    alert("Campo obrigatório. Preencha o nome!");
-    nome.focus();
+        alert("Campo obrigatório. Preencha o campo [  Nome completo  ] !");
+        document.getElementById('inputName').focus();
     }
 
     else if (email == "" || email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-        alert("Campo obrigatório. E-mail inválido");
-        email.focus();
+        alert("Campo obrigatório. Preencha o campo [  E-mail  ] corretamente!");
+        document.getElementById('inputEmail').focus();
     }
     else if (senha == "") {
-        alert("Campo obrigatório. Senha inválida");
-        senha.focus();
+        alert("Campo obrigatório. Preencha o campo [  Senha  ] !");
+        document.getElementById('inputPassword').focus();
     }
 
-    else if (cpf == "") {
-        alert("Campo obrigatório. CPF inválido");
-        cpf.focus();
+    else if (cpf == "" || cpf.length <= 13) {
+        alert("Campo obrigatório. Preencha o [  CPF  ] corretamente!");
+        document.getElementById('inputCpf').focus();
     }
-    else if (celular == "") {
+    else if (celular == "" || celular.length <= 14) {
 
-        alert("Campo obrigatório. Preencha o celular!");
-        celular.focus();
+        alert("Campo obrigatório. Preencha o [  Celular  ] corretamente!");
+        document.getElementById('inputPhone').focus();
     }
     else {
 
@@ -82,8 +104,28 @@ function formContratante() {
                 },
             }
         }).then(response => {
-            guardarJwt(response.data.token)
-            window.location.href = "/MainContratante"
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Contratante cadastrado com sucesso!'
+            })
+
+            setTimeout(function () {
+                guardarJwt(response.data.token)
+                window.location.href = "/MainContratante"
+            }, 3000)
+            
         })
     }
 }
@@ -102,37 +144,37 @@ function formFretista() {
     let celular = document.getElementById('inputPhone').value;
 
     if (rntrc == "") {
-        alert("Campo obrigatório. Preencha o RNTRC!");
-        rntrc.focus();
+        alert("Campo obrigatório. Preencha o campo [  RNTRC  ] !");
+        document.getElementById('inputRntrc').focus();
     }
     else if (razaoSocial == "") {
-        alert("Campo obrigatório. Preencha a Razão Social!");
-        razaoSocial.focus();
+        alert("Campo obrigatório. Preencha o campo [  Razão Social  ] !");
+        document.getElementById('inputRazaoSocial').focus();
     }
-    else if (cnpj == "") {
-        alert("Campo obrigatório. Preencha o CNPJ!");
-        cnpj.focus();
+    else if (cnpj == "" || cnpj.length <= 17 ) {
+        alert("Campo obrigatório. Preencha o campo [  CNPJ  ] corretamente!");
+        document.getElementById('inputCnpj').focus();
     }
     else if (nome == "") {
-        alert("Campo obrigatório. Preencha o nome!");
-        nome.focus();
+        alert("Campo obrigatório. Preencha o campo [  Nome completo  ] !");
+        document.getElementById('inputName').focus();
     }
     else if (email == "" || email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-        alert("Campo obrigatório. E-mail inválido");
-        email.focus();
+        alert("Campo obrigatório. Preencha o campo [  E-mail  ] corretamente!");
+        document.getElementById('inputEmail').focus();
     }
     else if (senha == "") {
-        alert("Campo obrigatório. Senha inválida");
-        senha.focus();
+        alert("Campo obrigatório. Preencha o campo [  Senha  ] !");
+        document.getElementById('inputPassword').focus();
     }
-    else if (cpf == "") {
-        alert("Campo obrigatório. CPF inválido");
-        cpf.focus();
+    else if (cpf == "" || cpf.length <= 13) {
+        alert("Campo obrigatório. Preencha o [  CPF  ] corretamente!");
+        document.getElementById('inputCpf').focus();
     }
-    else if (celular == "") {
+    else if (celular == "" || celular.length <= 14) {
 
-        alert("Campo obrigatório. Preencha o celular!");
-        celular.focus();
+        alert("Campo obrigatório. Preencha o [  Celular  ] corretamente!");
+        document.getElementById('inputPhone').focus();
     }
     else {
 
@@ -155,8 +197,28 @@ function formFretista() {
                 }
             }
         }).then(response => {
-            guardarJwt(response.data.token)
-            window.location.href = "/MainFretista"
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Fretista cadastrado com sucesso!'
+            })
+
+            setTimeout(function () {
+                guardarJwt(response.data.token)
+                window.location.href = "/MainFretista"
+            }, 3000)
+            
         })
     }
 }
@@ -177,12 +239,32 @@ function Login() {
         }
     })
         .then(response => {
-            guardarJwt(response.data.token)
-            if (isFretista()) {
-                window.location = '/MainFretista'
-            } else if (isContratante()) {
-                window.location = '/MainContratante'
-            }
-    })
+            
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Realizado autenticação de usuário!'
+            })
+
+            setTimeout(function () {
+                guardarJwt(response.data.token)
+                if (isFretista()) {
+                    window.location = '/MainFretista'
+                } else if (isContratante()) {
+                    window.location = '/MainContratante'
+                }
+            }, 3000)
+        })
  }
     

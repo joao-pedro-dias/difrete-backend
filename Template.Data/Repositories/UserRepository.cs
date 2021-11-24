@@ -26,9 +26,9 @@ namespace Template.Data.Repositories
                             && users.IsDeleted == false && users.Email.ToLower() == email.ToLower() && users.Password == password
                         select new { User = users, Person = persons, Fretista = fretistas };
 
-            if(query.Count() == 0)
+            if (query.Count() == 0)
             {
-                throw new Exception("Usuário e/ou senha incorretos");
+                throw new Exception("E-mail/ Senha inválidos");
             }
 
             var result = query.First();
