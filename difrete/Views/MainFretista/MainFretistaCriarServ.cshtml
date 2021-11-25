@@ -10,9 +10,18 @@
         <h1>Criar Serviço</h1>
         <p>Os serviços aqui criados serão disponibilizados para os contratantes</p>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Criar
-        </button>
+        <div class="form-check">
+          <input data-toggle="modal" data-target="#exampleModal" class="form-check-input" type="radio" name="exampleRadios" id="radioOnline" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Online
+          </label>
+        </div>
+        <div class="form-check">
+          <input data-toggle="modal" data-target="#staticBackdrop" class="form-check-input" type="radio" name="exampleRadios" id="radioOffline" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Offline
+          </label>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -27,8 +36,8 @@
                 <p>Este serviço não possui prazo de validade e se for necessário informar ao contratante que você não está mais disponível, basta excluí-lo.</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-success">Criar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-success">Online</button>
               </div>
             </div>
           </div>
@@ -36,17 +45,9 @@
 
         <br/>
         <hr/>
-        <div class="container">
-            <ul class="grid cards">
-            <li>
-                <h2>Serviço</h2>
-                <h5>Nome: #NomeFretista</h5>
-                <p>Celular: #CelularFretista</p>
-                <p>E-mail: #EmailFretista</p>
-                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">Excluir</button></center><br/>
-              </li>
-            </ul>
-        </div>
+        
+        <!--Card-->
+        <div id="container"></div>
 
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -60,8 +61,8 @@
                 <p>Isto significa que você não receberá mais solicitações de serviço</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não, voltar</button>
-                <button type="button" class="btn btn-danger">Sim, excluir</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-danger">Offilne</button>
               </div>
             </div>
           </div>

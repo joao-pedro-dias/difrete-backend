@@ -1,8 +1,9 @@
-﻿// 1 consulta de fretistas ativos
-// 2 endpoint para solicitar um fretista
+﻿// 2 endpoint para solicitar um fretista
 // 3 endpoint para consultar solicitações pendentes
 // 4 endopint para excluir uma solicitação
 // 5 endpoint para consultar solicitações finalizadas
+// 6 retirar " li e aceito ... "
+//https://localhost:44366/api/fretista/ativos
 
 
 /*REQUEST*/

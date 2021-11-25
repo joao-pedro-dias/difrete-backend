@@ -7,7 +7,7 @@ namespace Template.Application.Interfaces
 {
     public interface IFretistaService
     {
-        List<FretistaViewModel> Get();
         FretistaViewModel GetById(string id);
+        List<FretistaViewModel> GetAtivos();
     }
 }

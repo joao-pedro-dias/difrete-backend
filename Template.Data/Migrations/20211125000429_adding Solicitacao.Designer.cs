@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(TemplateContext))]
-    partial class TemplateContextModelSnapshot : ModelSnapshot
+    [Migration("20211125000429_adding Solicitacao")]
+    partial class addingSolicitacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +34,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 392, DateTimeKind.Local).AddTicks(1232));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 4, 28, 673, DateTimeKind.Local).AddTicks(7195));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -87,7 +89,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(2418));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 4, 28, 674, DateTimeKind.Local).AddTicks(9367));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -122,7 +124,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(2820));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 4, 28, 674, DateTimeKind.Local).AddTicks(9803));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -138,8 +140,8 @@ namespace Template.Data.Migrations
                     b.Property<Guid>("PersonId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("StatusId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -147,41 +149,7 @@ namespace Template.Data.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.HasIndex("StatusId");
-
                     b.ToTable("Solicitacoes");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.StatusSolicitacao", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(3289));
-
-                    b.Property<DateTime?>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsStatusFinal")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StatusSolicitacoes");
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.User", b =>
@@ -193,7 +161,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(3625));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 4, 28, 675, DateTimeKind.Local).AddTicks(246));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -252,17 +220,9 @@ namespace Template.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Template.Domain.Entities.StatusSolicitacao", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Fretista");
 
                     b.Navigation("Person");
-
-                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.User", b =>

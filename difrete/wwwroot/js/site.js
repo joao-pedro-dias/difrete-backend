@@ -90,3 +90,17 @@ function mphone(v) {
     }
     return r;
 }
+
+/*MOSTRAR CARD QUANDO ESTIVER online E OCULTAR CARD QUANDO ESTIVER offline*/
+function checkInputFretista() {
+    $('#flexSwitchCheckChecked').on('click', function (e) {
+        var online = $('#radioOnline').is(':checked');
+        var offline = $('#radioOffline').is(':checked');
+
+        if (online) {
+            $('#container').html("<ul class='grid cards'><li><h2>Serviço</h2><h5>Razão social: #RazaoSocial</h5><p>CNPJ: #CNPJ</p><p>Nome: #NomeFretista</p><p>Celular: #CelularFretista</p><p>E-mail: #EmailFretista</p></li></ul>");
+        } else if (offline) {
+            $('#container').html("<ul class='grid cards'><li><h2>Serviço</h2><h5>Razão social: #RazaoSocial</h5><p>CNPJ: #CNPJ</p><p>Nome: #NomeFretista</p><p>Celular: #CelularFretista</p><p>E-mail: #EmailFretista</p></li></ul>").hide();
+        }
+    });
+}

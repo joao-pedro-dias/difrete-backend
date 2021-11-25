@@ -10,9 +10,7 @@ namespace Template.Domain.Entities
     {
         [ForeignKey("User")]
         public Guid UserId;
-
-        //Minha entidade Fretista
-        //Entidade :: Fretista :: User
+        public bool IsAtivo { get; set; }
         public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }
         public string Rntrc { get; set; }

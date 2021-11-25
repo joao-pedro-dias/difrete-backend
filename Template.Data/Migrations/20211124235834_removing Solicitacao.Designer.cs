@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(TemplateContext))]
-    partial class TemplateContextModelSnapshot : ModelSnapshot
+    [Migration("20211124235834_removing Solicitacao")]
+    partial class removingSolicitacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +34,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 392, DateTimeKind.Local).AddTicks(1232));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 20, 58, 34, 39, DateTimeKind.Local).AddTicks(5750));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -87,7 +89,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(2418));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 20, 58, 34, 40, DateTimeKind.Local).AddTicks(9733));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -113,77 +115,6 @@ namespace Template.Data.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("Template.Domain.Entities.Solicitacao", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(2820));
-
-                    b.Property<DateTime?>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("FretistaId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("StatusId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FretistaId");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("Solicitacoes");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.StatusSolicitacao", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(3289));
-
-                    b.Property<DateTime?>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsStatusFinal")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StatusSolicitacoes");
-                });
-
             modelBuilder.Entity("Template.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -193,7 +124,7 @@ namespace Template.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 11, 24, 21, 36, 16, 393, DateTimeKind.Local).AddTicks(3625));
+                        .HasDefaultValue(new DateTime(2021, 11, 24, 20, 58, 34, 41, DateTimeKind.Local).AddTicks(196));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -236,33 +167,6 @@ namespace Template.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.Solicitacao", b =>
-                {
-                    b.HasOne("Template.Domain.Entities.Fretista", "Fretista")
-                        .WithMany()
-                        .HasForeignKey("FretistaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Template.Domain.Entities.Person", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Template.Domain.Entities.StatusSolicitacao", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Fretista");
-
-                    b.Navigation("Person");
-
-                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.User", b =>
