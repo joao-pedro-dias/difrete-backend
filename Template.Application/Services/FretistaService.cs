@@ -3,29 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
+using System.Linq;
 using Template.Application.Interfaces;
 using Template.Application.ViewModels;
 using Template.Auth.Services;
 using Template.Domain.Entities;
 using Template.Domain.Interfaces;
+using System.Data.Entity;
 
 namespace Template.Application.Services
 {
     public class FretistaService : IFretistaService
     {
         private readonly IFretistaRepository fretistaRepository;
-        private readonly IMapper mapper;
-        public FretistaService(IFretistaRepository fretistaRepository, IMapper mapper)
+        public FretistaService(IFretistaRepository fretistaRepository)
         {
             this.fretistaRepository = fretistaRepository;
-            this.mapper = mapper;
         }
-        public List<FretistaViewModel> Get()
-        {
-            IEnumerable<Fretista> _fretista = this.fretistaRepository.GetAll();
-            List<FretistaViewModel> _fretistaViewModels = mapper.Map<List<FretistaViewModel>>(_fretista);
 
-            return _fretistaViewModels;
+        public List<FretistaViewModel> GetAtivos()
+        {
+            var fretistas = fretistaRepository.GetAllActives();
+            return fretistas;
         }
 
         //Verificando se o usuário existe
@@ -39,7 +38,7 @@ namespace Template.Application.Services
             {
                 throw new Exception("User not found");
             }
-            return mapper.Map<FretistaViewModel>(_fretista);
+            return new FretistaViewModel(_fretista);
         }
     }
 }

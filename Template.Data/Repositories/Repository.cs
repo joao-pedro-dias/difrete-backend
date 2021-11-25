@@ -194,6 +194,18 @@ namespace Template.Data.Repositories
                 throw;
             }
         }
+        public List<TEntity> FindAll(Expression<Func<TEntity, bool>> where)
+        {
+            try
+            {
+                return DbSet.Where(where).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public TEntity Find(Expression<Func<TEntity, bool>> where)
         {

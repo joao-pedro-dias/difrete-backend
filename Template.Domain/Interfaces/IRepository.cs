@@ -20,6 +20,7 @@ namespace Template.Domain.Interfaces
         TEntity Find(params object[] Keys);
         TEntity Find(Expression<Func<TEntity, bool>> where);
         TEntity Find(Expression<Func<TEntity, bool>> predicate, Func<IQueryable<TEntity>, object> includes);
+        List<TEntity> FindAll(Expression<Func<TEntity, bool>> where);
         IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> where);
         IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Func<IQueryable<TEntity>, object> includes);
         Task<TEntity> CreateAsync(TEntity model);
