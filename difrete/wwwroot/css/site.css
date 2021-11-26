@@ -21352,4 +21352,12 @@ footer li {
     .copyright {
         font-size: 13px;
     }
-} 
+}
+
+#demoDIV {
+    margin-top: 1em;
+}
+
+.card {
+    margin-bottom: 1em;
+}

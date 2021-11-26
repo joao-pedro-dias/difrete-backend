@@ -21,10 +21,14 @@ namespace Template.Ioc
 
             #region Repositories3
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<ISolicitacaoRepository, SolicitacaoRepository>();
+            services.AddScoped<IStatusSolicitacaoRepository, StatusSolicitacaoRepository>();
             #endregion
 
             #region Services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ISolicitacaoService, SolicitacaoService>();
             #endregion
 
             #region Services2

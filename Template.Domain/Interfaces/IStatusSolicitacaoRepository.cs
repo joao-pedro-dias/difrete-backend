@@ -7,9 +7,7 @@ using Template.Domain.Entities;
 
 namespace Template.Domain.Interfaces
 {
-    public interface IFretistaRepository : IRepository<Fretista>
+    public interface IStatusSolicitacaoRepository : IRepository<StatusSolicitacao>
     {
-        IEnumerable<Fretista> GetAll();
-        List<FretistaViewModel> GetAllActives(Guid personId);
     }
 }
