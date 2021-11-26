@@ -1,29 +1,29 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-using System.Linq;
 using Template.Application.Interfaces;
 using Template.Application.ViewModels;
-using Template.Auth.Services;
 using Template.Domain.Entities;
 using Template.Domain.Interfaces;
-using System.Data.Entity;
-
 namespace Template.Application.Services
 {
     public class FretistaService : IFretistaService
     {
         private readonly IFretistaRepository fretistaRepository;
-        public FretistaService(IFretistaRepository fretistaRepository)
+        private readonly IAuthService authService;
+
+        public FretistaService(IFretistaRepository fretistaRepository, IAuthService authService)
         {
             this.fretistaRepository = fretistaRepository;
+            this.authService = authService;
         }
 
         public List<FretistaViewModel> GetAtivos()
         {
-            var fretistas = fretistaRepository.GetAllActives();
+            var fretistas = fretistaRepository.GetAllActives(authService.GetPerson().Id);
+            var q = authService.GetFretista();
             return fretistas;
         }
 

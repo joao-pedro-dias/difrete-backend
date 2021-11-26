@@ -6,67 +6,73 @@
 }
 
 <body>
-      <div class="wrapper2">
-        <h1>Criar Serviço</h1>
-        <p>Os serviços aqui criados serão disponibilizados para os contratantes</p>
-        <!-- Button trigger modal -->
-        <div class="form-check">
-          <input data-toggle="modal" data-target="#exampleModal" class="form-check-input" type="radio" name="exampleRadios" id="radioOnline" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-            Online
-          </label>
-        </div>
-        <div class="form-check">
-          <input data-toggle="modal" data-target="#staticBackdrop" class="form-check-input" type="radio" name="exampleRadios" id="radioOffline" value="option2">
-          <label class="form-check-label" for="exampleRadios2">
-            Offline
-          </label>
-        </div>
+    <div class="wrapper2">
+    <h1>Criar Serviço</h1>
+    <p>Os serviços aqui criados serão disponibilizados para os contratantes</p>
+    <!-- Button trigger modal -->
+    <div class="form-check">
+        <input onclick="addCard();" data-toggle="modal" data-target="#exampleModal" class="form-check-input" type="radio" name="exampleRadios" id="radioOnline" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+        Online
+        </label>
+    </div>
+    <div class="form-check">
+        <input data-toggle="modal" data-target="#staticBackdrop" class="form-check-input" type="radio" name="exampleRadios" id="radioOffline" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+        Offline
+        </label>
+    </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Deseja criar um serviço?</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>A criação de um serviço implica na criação de uma ordem de serviço que apenas informa ao contratante a sua disponilidade atual.</p><br/>
-                <p>Este serviço não possui prazo de validade e se for necessário informar ao contratante que você não está mais disponível, basta excluí-lo.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                <button type="button" class="btn btn-success">Online</button>
-              </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja criar um serviço?</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-          </div>
+            <div class="modal-body">
+            <p>A criação de um serviço implica na criação de uma ordem de serviço que apenas informa ao contratante a sua disponilidade atual.</p><br/>
+            <p>Este serviço não possui prazo de validade e se for necessário informar ao contratante que você não está mais disponível, basta excluí-lo.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+            <button type="button" class="btn btn-success">Online</button>
+            </div>
         </div>
+        </div>
+    </div>
 
-        <br/>
-        <hr/>
+    <br/>
+    <hr/>
         
-        <!--Card-->
-        <div id="container"></div>
-
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Excluir disponibilidade?</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>Realizando a exclusão desta ordem de serviço, o contratante não terá mais acesso a sua disponibilidade</p></strong>
-                <p>Isto significa que você não receberá mais solicitações de serviço</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                <button type="button" class="btn btn-danger">Offilne</button>
-              </div>
-            </div>
-          </div>
+    <!--Card-->
+    <div class="container">
+        <div class="row">
+            <div class="col" id="cardDIV"></div>
         </div>
+    </div>
 
-      </div>
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Excluir disponibilidade?</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>Realizando a exclusão desta ordem de serviço, o contratante não terá mais acesso a sua disponibilidade</p></strong>
+            <p>Isto significa que você não receberá mais solicitações de serviço</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+            <button type="button" class="btn btn-danger">Offilne</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
 </body>
+
+<script src="~/js/createCards.js"></script>

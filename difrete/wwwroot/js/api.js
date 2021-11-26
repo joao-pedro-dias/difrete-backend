@@ -1,15 +1,20 @@
-﻿// 2 endpoint para solicitar um fretista
-// 3 endpoint para consultar solicitações pendentes
+﻿// 3 endpoint para consultar solicitações pendentes
 // 4 endopint para excluir uma solicitação
-// 5 endpoint para consultar solicitações finalizadas
+// 5 endpoint para consultar solicitações encerradas (aceitas e canceladas). Diferenciar entre as duas
 // 6 retirar " li e aceito ... "
-//https://localhost:44366/api/fretista/ativos
+// Redirecionar para area logada caso tenha jwt valido
+
+// Card solicitacao aceita
+// Card solicitacao cancelada
 
 
 /*REQUEST*/
 axios.interceptors.request.use(function (config) {
+    console.log('fd')
+
     if (!isJwtExpired()) {
-        config.headers.Bearer = "Bearer " + localStorage.getItem('jwt')
+        console.log('inner')
+        config.headers.Authorization = "Bearer " + localStorage.getItem('jwt')
     }
     return config;
 }, function (error) {
@@ -21,8 +26,27 @@ axios.interceptors.response.use(function (response) {
     return response;
 }, function (error) {
     if (error.response.status === 401) {
-        alert('Sessão expirada!')
-        window.location.href = '/Home/Index'
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'warning',
+            title: 'Sessão expirada!'
+        })
+
+        setTimeout(function () {
+            window.location.href = '/Home/Index'
+        }, 3000)
+
     } else {
         if (error?.response?.data?.message) {
             if (error.response.data.message === "E-mail já cadastrado!") {
@@ -44,8 +68,6 @@ axios.interceptors.response.use(function (response) {
                 })
             }
         }
-        /*alert(error.response.data.message)*/
-        
     }
     return Promise.reject(error);
 });
@@ -240,6 +262,7 @@ function Login() {
         }
     })
         .then(response => {
+            localStorage.setItem('jwt', response.data.token)
             
             const Toast = Swal.mixin({
                 toast: true,
@@ -267,5 +290,4 @@ function Login() {
                 }
             }, 3000)
         })
- }
-    
+}

@@ -8,7 +8,7 @@
 
 function isJwtExpired() {
     const jwt = getJwt();
-    return new Date(jwt.exp) < new Date();
+    return new Date(jwt.exp) > new Date();
 }
 
 function isFretista() {
