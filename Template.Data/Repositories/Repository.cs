@@ -119,7 +119,7 @@ namespace Template.Data.Repositories
 
                     DbSet.Attach(model);
 
-                    _entry.State = EntityState.Modified;
+                    _entry.State = EntityState.Deleted;
                 }
                 else
                 {

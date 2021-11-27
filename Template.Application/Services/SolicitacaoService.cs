@@ -26,27 +26,41 @@ namespace Template.Application.Services
 
         public void Aceitar(Guid idSolicitacao)
         {
-            throw new NotImplementedException();
+            var solicitacao = _solicitacaoRepository.Find(x => x.Id == idSolicitacao);
+            var statusAceito = statusSolicitacaoRepository.Find(x => x.Descricao == StatusSolicitacaoEnum.ACEITO.ToString());
+            solicitacao.StatusId = statusAceito.Id;
+            _solicitacaoRepository.Update(solicitacao);
         }
 
-        public void Cancelar(Guid idSoliciatacao)
+        public void Excluir(Guid idSolicitacao)
         {
-            throw new NotImplementedException();
+            var solicitacao = _solicitacaoRepository.Find(x => x.Id == idSolicitacao);
+            _solicitacaoRepository.Delete(solicitacao);
         }
 
-        public List<SolicitacaoViewModel> ConsltarServicosEcerrados()
+        public List<SolicitacaoViewModel> ConsultarServicosEncerrados()
         {
-            throw new NotImplementedException();
+            List<string> finishedStatus = new List<string>();
+            finishedStatus.Add(StatusSolicitacaoEnum.RECUSADO.ToString());
+            finishedStatus.Add(StatusSolicitacaoEnum.ACEITO.ToString());
+
+            return _solicitacaoRepository.GetByStatus(_authService.GetPerson().Id, finishedStatus);
         }
 
-        public List<SolicitacaoViewModel> CosultarServicosPendentes()
+        public List<SolicitacaoViewModel> ConsultarServicosPendentes()
         {
-            throw new NotImplementedException();
+            List<string> finishedStatus = new List<string>();
+            finishedStatus.Add(StatusSolicitacaoEnum.PENDENTE.ToString());
+
+            return _solicitacaoRepository.GetByStatus(_authService.GetPerson().Id, finishedStatus);
         }
 
         public void Recusar(Guid idSolicitacao)
         {
-            throw new NotImplementedException();
+            var solicitacao = _solicitacaoRepository.Find(x => x.Id == idSolicitacao);
+            var statusAceito = statusSolicitacaoRepository.Find(x => x.Descricao == StatusSolicitacaoEnum.RECUSADO.ToString());
+            solicitacao.StatusId = statusAceito.Id;
+            _solicitacaoRepository.Update(solicitacao);
         }
 
         public void Solicitar(Guid idFretista)
@@ -61,6 +75,23 @@ namespace Template.Application.Services
 
 
             _solicitacaoRepository.Create(solicitacao);
+        }
+
+        public List<SolicitacaoFretistaViewModel> ConsultarServicosPendentesFretista()
+        {
+            List<string> finishedStatus = new List<string>();
+            finishedStatus.Add(StatusSolicitacaoEnum.PENDENTE.ToString());
+
+            return _solicitacaoRepository.GetForFretistaByStatus(_authService.GetFretista().Id, finishedStatus);
+        }
+
+        public List<SolicitacaoFretistaViewModel> ConsultarServicosEncerradosFretista()
+        {
+            List<string> finishedStatus = new List<string>();
+            finishedStatus.Add(StatusSolicitacaoEnum.RECUSADO.ToString());
+            finishedStatus.Add(StatusSolicitacaoEnum.ACEITO.ToString());
+
+            return _solicitacaoRepository.GetForFretistaByStatus(_authService.GetFretista().Id, finishedStatus);
         }
     }
 }

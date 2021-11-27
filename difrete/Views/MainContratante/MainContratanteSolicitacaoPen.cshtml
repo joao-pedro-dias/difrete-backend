@@ -5,62 +5,16 @@
     Layout = "~/Views/Shared/_LayoutMainContratante.cshtml";
 }
 
+@section scripts {
+    <script src="~/js/MainContratanteServicoPendente.js"></script>
+}
+
 <body>
-      <div class="wrapper2">
+    <div class="wrapper2">
         <h1>Solicitação de serviços pendentes</h1>
         <p>Serviços que estão aguardando aprovação do fretista</p>
-        <ul class="grid cards">
-            <li>
-                <h2>Serviço</h2>
-                <h5>Nome: #NomeFretista</h5>
-                <p>Celular: #CelularFretista</p>
-                <p>E-mail: #EmailFretista</p>
-                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Excluir</button></center>
-                <br />
-            </li>
-            <li>
-                <h2>Serviço</h2>
-                <h5>Nome: #NomeFretista</h5>
-                <p>Celular: #CelularFretista</p>
-                <p>E-mail: #EmailFretista</p>
-                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Excluir</button></center>
-                <br />
-            </li>
-            <li>
-                <h2>Serviço</h2>
-                <h5>Nome: #NomeFretista</h5>
-                <p>Celular: #CelularFretista</p>
-                <p>E-mail: #EmailFretista</p>
-                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Excluir</button></center>
-                <br />
-            </li>
-            <li>
-                <h2>Serviço</h2>
-                <h5>Nome: #NomeFretista</h5>
-                <p>Celular: #CelularFretista</p>
-                <p>E-mail: #EmailFretista</p>
-                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Excluir</button></center>
-                <br />
-            </li>
-            </li>
-        </ul>
+    </div>
 
-        <div class="modal fade" id="delete" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Excluir solicitação?</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>Atualmente o serviço está pendente aguardando aprovação do fretista.</p>
-                <p>Excluindo esta solicitação de serviço, o fretista não terá mais acesso a solicitação!</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-              </div>
-            </div>
-          </div>
-      </div>
+    <div id="container" class="container">
+    </div>
 </body>

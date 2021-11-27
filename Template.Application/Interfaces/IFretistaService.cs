@@ -9,5 +9,8 @@ namespace Template.Application.Interfaces
     {
         FretistaViewModel GetById(string id);
         List<FretistaViewModel> GetAtivos();
+        void Ativar();
+        void Inativar();
+        FretistaViewModel GetById(Guid Id);
     }
 }

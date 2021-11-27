@@ -15,10 +15,6 @@
         $('#user-email').text(getJwt().email)
     })
 
-    setTimeout(function () {
-        $('#cardDIV').text(obterCard())
-    })
-
 })(jQuery);
 
 function post() {
