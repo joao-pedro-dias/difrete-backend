@@ -6,6 +6,6 @@ namespace Template.Domain.Enums
 {
     public enum StatusSolicitacaoEnum
     {
-        CANCELADO, PENDENTE, ACEITO
+        RECUSADO, PENDENTE, ACEITO
     }
 }

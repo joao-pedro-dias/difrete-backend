@@ -13,12 +13,14 @@ namespace Template.Application.ViewModels
             Id = fretista.Id;
             RazaoSocial = fretista.RazaoSocial;
             Cnpj = fretista.Cnpj;
+            IsAtivo = fretista.IsAtivo;
         }
         public FretistaViewModel(Fretista fretista, User user, Person person)
         {
             Id = fretista.Id;
             RazaoSocial = fretista.RazaoSocial;
             Cnpj = fretista.Cnpj;
+            IsAtivo = fretista.IsAtivo;
             Nome = user?.Person?.Name;
             Celular = person?.Celular;
             Email = user?.Email;
@@ -30,5 +32,6 @@ namespace Template.Application.ViewModels
         public string Nome { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
+        public bool IsAtivo { get; set; }
     }
 }

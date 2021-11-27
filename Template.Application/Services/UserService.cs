@@ -40,6 +40,10 @@ namespace Template.Application.Services
             //encriptografando a senha do usuário após método POST
             User _user = mapper.Map<User>(userViewModel);
             _user.Password = EncryptPassword(_user.Password);
+            if(_user?.Fretista != null)
+            {
+                _user.Fretista.IsAtivo = true;
+            }
 
             var createdUser = this.userRepository.Create(_user);
             createdUser.Person.User = null;

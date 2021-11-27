@@ -20027,10 +20027,6 @@ html {
     scroll-padding-top: 6.3125rem;
 }
 
-main {
-    background-image: url("../img/gallery/bg.png");
-}
-
 pre, code {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;

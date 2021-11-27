@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Template.Application.Interfaces;
 using Template.Application.ViewModels;
 using Template.Domain.Entities;
@@ -39,6 +40,25 @@ namespace Template.Application.Services
                 throw new Exception("User not found");
             }
             return new FretistaViewModel(_fretista);
+        }
+
+        public void Ativar()
+        {
+            var fretista = fretistaRepository.Find(x => x.UserId == authService.GetUser().Id);
+            fretista.IsAtivo = true;
+            fretistaRepository.Update(fretista);
+        }
+
+        public void Inativar()
+        {
+            var fretista = fretistaRepository.Find(x => x.UserId == authService.GetUser().Id);
+            fretista.IsAtivo = false;
+            fretistaRepository.Update(fretista);
+        }
+
+        public FretistaViewModel GetById(Guid Id)
+        {
+            return fretistaRepository.Query(x => x.Id == Id).Select(x => new FretistaViewModel(x, x.User, x.User.Person)).FirstOrDefault();
         }
     }
 }

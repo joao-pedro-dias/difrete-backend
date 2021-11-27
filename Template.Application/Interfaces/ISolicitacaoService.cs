@@ -8,10 +8,12 @@ namespace Template.Application.Interfaces
     public interface ISolicitacaoService
     {
         void Solicitar(Guid idFretista);
-        void Cancelar(Guid idSoliciatacao);
+        void Excluir(Guid idSoliciatacao);
         void Aceitar(Guid idSolicitacao);
         void Recusar(Guid idSolicitacao);
-        List<SolicitacaoViewModel> ConsltarServicosEcerrados();
-        List<SolicitacaoViewModel> CosultarServicosPendentes();
+        List<SolicitacaoViewModel> ConsultarServicosEncerrados();
+        List<SolicitacaoViewModel> ConsultarServicosPendentes();
+        List<SolicitacaoFretistaViewModel> ConsultarServicosPendentesFretista();
+        List<SolicitacaoFretistaViewModel> ConsultarServicosEncerradosFretista();
     }
 }

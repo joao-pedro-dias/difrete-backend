@@ -5,16 +5,18 @@
     Layout = "~/Views/Shared/_LayoutMainContratante.cshtml";
 }
 
+@section scripts {
+    <script src="~/js/MainContratante.js"></script>
+}
+
 <body>
-      <div class="wrapper2">
+    <div class="wrapper2">
         <h1>Serviços disponíveis</h1>
         <p>Fretistas que estão disponíveis para serviço</p>
+    </div>
 
         <!--Cards de fretistas ativos-->
-        <div class="container">
-            <div class="row">
-                <div class="col" id="cardDIV"></div>
-            </div>
+        <div id="cardDIV" class="container">
         </div>
 
         @*<ul class="grid cards">
@@ -29,25 +31,5 @@
             
         </ul>*@
 
-        <div class="modal fade" id="success" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Deseja enviar solicitação?</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>Enviando a solicitação de serviço, o fretista ficará ciente de que você precisa do serviço.</p>
-                <p>O serviço só acontece se o fretista realizar o aceite!</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                <button type="button" class="btn btn-success">Solicitar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        
 </body>
-
-<script src="~/js/createCards.js"></script>
