@@ -11,7 +11,5 @@ namespace Template.Domain.Models
         public DateTime DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
         public bool IsDeleted { get; set; }
-
-
     }
 }
