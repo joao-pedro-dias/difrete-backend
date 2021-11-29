@@ -6,13 +6,13 @@
 
         const container = $('#cardDIV');
 
-        const cards = response.data.map(fretistaAtivo => getCard(fretistaAtivo))
+        const cards = response.data.map((fretistaAtivo, index) => getCard(fretistaAtivo, index))
 
         container.html(cards);
     })
 }
 
-function getCard(fretistaAtivo) {
+function getCard(fretistaAtivo, index) {
     return `
         <div class="card" style="width: 22rem; border: solid 2px; border-color: green;">
             <div class="card-body">
@@ -23,11 +23,11 @@ function getCard(fretistaAtivo) {
                 <p class="card-title"><strong>E-mail:</strong> ${fretistaAtivo.email}</p>
                 <p class="card-title"><strong>Celular:</strong> ${fretistaAtivo.celular}</p>
                 <br/>
-                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#botaoSolicitar">Solicitar serviço</button></center>
+                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#botaoSolicitar${index}">Solicitar serviço</button></center>
             </div>
         </div>
 
-        <div class="modal fade" id="botaoSolicitar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="botaoSolicitar${index}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
